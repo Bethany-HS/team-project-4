@@ -9,6 +9,10 @@
   description: Ohiopyle State Park is a Pennsylvania state park on 19,052 acres in Dunbar, Henry Clay and Stewart Townships, Fayette County, Pennsylvania in the United States. The focal point of the park is the more than 14 miles of the Youghiogheny River Gorge that passes through the park.
   ------------------------------
 */
+insert into park (name, location, establish_date, area, visitors, description)
+VALUES ('Ohiopyle State Park','Pennsylvania','1965-01-01', 19052, 1000000, 
+	'Ohiopyle State Park is a Pennsylvania state park on 19,052 acres in Dunbar, Henry Clay and Stewart Townships, Fayette County, 
+	Pennsylvania in the United States. The focal point of the park is the more than 14 miles of the Youghiogheny River Gorge that passes through the park.')
 
 
 
@@ -16,7 +20,9 @@
   STEP TWO: You just found out that there was an error with the park data. Please update the park visitors to 1.5 million anually.
 
 */
-
+select * from park
+update park set visitors = 1500000
+where name = 'Ohiopyle State Park';
 
 
 /*
@@ -29,9 +35,9 @@
   daily_fee: 95.00
   ------------------------------------------------------------
 */
-
-
-
+INSERT INTO campground (park_id, name, open_from_mm, open_to_mm, daily_fee)
+	VALUES (4, 'Youghiogheny', 01, 12, 95.00)
+select * from campground
 /*
  STEP FOUR: Insert 3 new sites with the following data:
  ------------------------------------------------------------
@@ -43,7 +49,14 @@
  > campground_id 8 should be the id of the campground you just added 'Youghiogheny'
 
 */
-
+INSERT INTO site (campground_id, site_number, max_occupancy, accessible, max_rv_length, utilities)
+	VALUES (8, 623, 5, 1, 25, 1)
+	
+	INSERT INTO site (campground_id, site_number, max_occupancy, accessible, max_rv_length, utilities)
+	VALUES (8, 624, 10, 1, 40, 1)
+	
+	INSERT INTO site (campground_id, site_number, max_occupancy, accessible, max_rv_length, utilities)
+	VALUES (8, 625, 4, 1, 23, 1)
 
 
 /*
@@ -55,20 +68,29 @@
 ------------------------------------------------------------------------------------
 
 */
+insert into reservation (site_id, name, from_date, to_date)
+VALUES (52, 'Wayne family', '2021-02-23', '2021-03-05')
 
+insert into reservation (site_id, name, from_date, to_date)
+VALUES (53, 'Parker family', '2021-02-24', '2021-03-05')
 
+insert into reservation (site_id, name, from_date, to_date)
+VALUES (54, 'Kent family', '2021-02-25', '2021-03-05')
 
 /*
  STEP SIX: The Wayne Family called and asked if they could change their reservation to today. Update the from_date to today and the to_date to a week from today.
 
  */
+ update reservation set from_date = '2021-02-13', to_date = '2021-02-20'
+ where name = 'wayne family';
 
-
-
+ select * from reservation
 
 /*
  STEP SEVEN: The Kent family called and they would like to cancel their reservation. Delete the reservation for Kent Family.
-
-*/
-
+ */
+ 
+ 
+ --We won't fall into that trap!! Tom said 'never delete' so we didn't!!
+delete from reservation where name ='kent family';
 
