@@ -2,17 +2,20 @@
 -----------------------------------------------
 
 -- select name and daily fee of all campgrounds
-
+select name, daily_fee from campground;
 
 -- select name and daily fee of all campgrounds ordered by campground name
-
+select name, daily_fee from campground
+order by name;
 
 -- select name, open from month, open to month, and daily fee of the campgrounds where daily fee is less than $100
-
+select name, open_from_mm, open_to_mm, daily_fee from campground
+where daily_fee < 100;
 
 -- select name and daily fee of the campgrounds where the campground is open all year long
 
-
+select name, daily_fee from campground
+where open_from_mm = 1 and open_to_mm = 12;
 
 -- PARK TABLE
 -----------------------------------------------
@@ -49,13 +52,16 @@ select count(utilities) from site where utilities = '1';
 -----------------------------------------------
 
 -- select reservation id, site id, name, from date, to date of the reservations where the checkin date is between the first and last day of the current month (hard coded month is ok)
-
+	SELECT reservation_id, site_id, name, from_date, to_date from reservation
+	WHERE from_date BETWEEN '2021-02-01' AND '2021-02-28';
 
 -- select all columns from reservation where name includes 'Reservation'
 
+	SELECT name, from_date, to_date, create_date from reservation
+	WHERE name LIKE '%Reservation%';
 
 -- select the total number of reservations in the reservation table
-
+	SELECT COUNT(from_date) as total_reservations from reservation;
 
 -- select reservation id, site id, name of the reservations where site id is in the list 9, 20, 24, 45, 46
 select reservation_id, site_id, name from reservation 

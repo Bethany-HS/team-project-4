@@ -36,8 +36,9 @@ where name = 'Ohiopyle State Park';
   ------------------------------------------------------------
 */
 INSERT INTO campground (park_id, name, open_from_mm, open_to_mm, daily_fee)
-	VALUES (4, 'Youghiogheny', 01, 12, 95.00)
-select * from campground
+	VALUES (4, 'Youghiogheny', 01, 12, 95.00);
+
+select * from campground;
 /*
  STEP FOUR: Insert 3 new sites with the following data:
  ------------------------------------------------------------
@@ -50,13 +51,13 @@ select * from campground
 
 */
 INSERT INTO site (campground_id, site_number, max_occupancy, accessible, max_rv_length, utilities)
-	VALUES (8, 623, 5, 1, 25, 1)
+	VALUES (8, 623, 5, 1, 25, 1);
 	
 	INSERT INTO site (campground_id, site_number, max_occupancy, accessible, max_rv_length, utilities)
-	VALUES (8, 624, 10, 1, 40, 1)
+	VALUES (8, 624, 10, 1, 40, 1);
 	
 	INSERT INTO site (campground_id, site_number, max_occupancy, accessible, max_rv_length, utilities)
-	VALUES (8, 625, 4, 1, 23, 1)
+	VALUES (8, 625, 4, 1, 23, 1);
 
 
 /*

@@ -1,5 +1,7 @@
 -- select the park name, campground name, open_from_mm, open_to_mm & daily_fee ordered by park name and then campground name
-
+	SELECT park.name as park_name, campground.name as campground_name, open_from_mm, open_to_mm, daily_fee from campground
+	join park on park.park_id = campground.park_id
+	ORDER BY park_name, campground_name;
 
 
 -- select the park name and the total number of campgrounds for each park ordered by park name
@@ -9,7 +11,10 @@ group by park.name
 ORDER BY park.name
 
 -- select the park name, campground name, site number, max occupancy, accessible, max rv length, utilities where the campground name is 'Blackwoods'
-
+	select park.name as park_name, campground.name as campground_name, site_number, max_occupancy, max_rv_length, utilities from site
+	join campground on campground.campground_id = site.site_id
+	join park on park.park_id = campground.campground_id 
+	WHERE campground.name = 'Blackwoods';
 
 
 /*
@@ -36,7 +41,9 @@ order by park.name
 
 -- select site number, reservation name, reservation from and to date ordered by reservation from date
 
-
+SELECT site_number, name, from_date, to_date from reservation
+join site on site.site_id = reservation.reservation_id
+ORDER BY from_date;
 
 
 /*
